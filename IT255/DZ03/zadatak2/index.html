@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadatak 02</title>
+    <script src="racunice.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        
+        <form>
+            <h1>Kalkulator</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="broj1">Unesite prvi broj : </label>
+                        </td>
+                        <td>
+                            <input id="broj1" type="number"><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="broj2">Unesite drugi broj : </label>
+                        </td>
+                        <td>
+                            <input id="broj2" type="number"><br />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="buttons">
+                <input class="button" type="button" onclick="sabiranje()" value="+">
+                <input class="button" type="button" onclick="oduzimanje()" value="-">
+                <input class="button" type="button" onclick="deljenje()" value="/">
+                <input class="button" type="button" onclick="mnozenje()" value="*"><br/>
+            </div>
+            <p id="rez">Rezultat je :</p>
+        </form>
+    </main>
+</body>
+
+</html>
