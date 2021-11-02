@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="greska">
+        <h4>Sve greške će biti prikazane ovde</h4><br />
+        <p id="greska"></p>
+    </div>
+    <div class="forma">
+        <form action="" method="post">
+            <label class="form label" for="username">Username</label>
+            <input class="form input" type="text" placeholder="Username123" required><br />
+            <label class="form label" for="password">Password</label>
+            <input class="form input" id="password" type="password" placeholder="*******" required><br />
+            <input class="form submit1" id="provera" type="button" value="Login" onclick="proveriPodatke()">
+        </form>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+
+</html>

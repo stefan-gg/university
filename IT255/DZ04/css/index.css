@@ -1,0 +1,70 @@
+body{
+    text-align: center;
+}
+
+.link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #49A9FD;
+    color: white;
+    height: 300px;
+    font-size: 30px;
+}
+
+.dugme{
+    height: 100px;
+    width: 200px;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.dugme:hover{
+    box-shadow: 5px 10px 5px black;
+}
+
+.form{
+    margin-top: 15px;
+    font-family: 'Courier New', Courier, monospace;    
+}
+
+.label{
+    font-weight: bold;
+}
+
+.input{
+   border-radius: 5%; 
+}
+
+.forma{
+    background-color: #E87A5E;
+}
+
+.greska{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    padding: unset;
+    background-color: red;
+}
+
+h4, #greska{
+    font-weight: bold;
+    margin: unset;
+}
+
+.submit1{
+    font-weight: bolder;
+    width: 200px;
+}
+
+.submit1:hover{
+    box-shadow: 3px 0px 3px black;    
+}
+
+.uspeh{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    box-shadow: 3px 3px 3px 3px black;
+}
