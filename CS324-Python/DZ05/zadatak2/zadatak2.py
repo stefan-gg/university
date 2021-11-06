@@ -11,14 +11,25 @@ class Student(Osoba):
         self.smer = smer
         self.polozeni_ispiti = polozeni_ispiti
 
-#funkcija koja proverava broj položenih ispita
+# funkcija koja proverava broj položenih ispita
+
+
 def broj_polozenih_ispita(ispiti):
     broj_polozenih_ispita = 0
-    
+
     for ocena in ispiti.values():
         if(ocena > 5 and ocena <= 10):
             broj_polozenih_ispita += 1
     return broj_polozenih_ispita
+
+
+'''
+funkcija proverava ispite koje su položili oba studenta
+prvo prolazimo kroz dictionary prvog studenta i ukoliko naiđemo na ispit koji je položio 
+ukoliko se u dictionary drugog studenta nalazi taj isti ključ i vrednost je veća od 5 ili manja jednaka 10
+u string poruka se dodaje ime tog ispita 
+'''
+
 
 def provera_istih_polozenih_ispita(ispiti_prvog_studenta, ispiti_drugog_studenta):
     broj_istih_polozenih_ispita = 0
@@ -36,8 +47,9 @@ def provera_istih_polozenih_ispita(ispiti_prvog_studenta, ispiti_drugog_studenta
     else:
         print(poruka)
 
+
 prvi_student = Student("Stefan", "Gogić", 9999, "IT", {
-                       "CS324": 9, "CS101": 5, "CS102": 7, "CS225": 10, "SE201" : 6})
+                       "CS324": 9, "CS101": 5, "CS102": 7, "CS225": 10, "SE201": 6})
 drugi_student = Student("Ime", "Prezime", 2812, "SE", {
                         "CS324": 6, "IT370": 5, "IT331": 7, "CS225": 10})
 
@@ -49,5 +61,5 @@ else:
 print(broj_polozenih_ispita(prvi_student.polozeni_ispiti))
 print(broj_polozenih_ispita(drugi_student.polozeni_ispiti))
 
-provera_istih_polozenih_ispita(prvi_student.polozeni_ispiti, drugi_student.polozeni_ispiti)
-
+provera_istih_polozenih_ispita(
+    prvi_student.polozeni_ispiti, drugi_student.polozeni_ispiti)
