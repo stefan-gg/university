@@ -1,0 +1,37 @@
+<style>
+    .opisSmestaja {
+        margin-top: 10px;
+        width: 500px;
+        padding: 10px;
+        box-shadow: 3px 0px 5px 3px #424C48;
+    }
+
+    .opisHotela,
+    .imeISlika,
+    .brojSoba {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imeISlika{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    img {
+        height: 100px;
+        width: 150px;
+        margin-right: 30px;
+    }
+</style>
+<div class="opisSmestaja">
+    <div class="imeISlika">
+        <img src="assets/img/slikasobe.jpg" alt="">
+        <h4 class="imeHotela">{{ smestaj.imeHotela }}</h4>
+    </div>
+    <p class="brojSoba">Broj soba : {{ smestaj.brojSoba }}</p>
+    <p class="opisHotela">{{ smestaj.opisHotela }}</p>
+</div>

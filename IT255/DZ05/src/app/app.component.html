@@ -1,0 +1,65 @@
+<style>
+  body {
+    display: flex;
+    background-color: black;
+  }
+
+  button{
+    margin-left: 50%;
+  }
+
+  .dugme{
+    margin-top: 30px;
+    margin-left: 10%;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  form{
+    margin-top: 20px;
+  }
+
+  .smestaj {
+    width: 300px;
+    margin-left: 44%;
+  }
+
+  .form,
+  .smestaj {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .opisHotela {
+    width: 300px;
+  }
+
+</style>
+<h4>Dodajte novi smeštaj</h4>
+<div class="form">
+  <form>
+    <table>
+      <tr>
+        <td><label for="imeHotela">Unesite ime smeštaja</label></td>
+        <td><input type="text" name="imeHotela" id="ime" #imeHotela><br /></td>
+      </tr>
+      <tr>
+        <td><label for="brojSoba">Broj soba</label></td>
+        <td><input type="number" name="brojSoba" id="broj" #brojSoba></td>
+      </tr>
+      <tr>
+        <td><label for="opisHotela">Opis smeštaja</label></td>
+        <textarea name="opisHotela" id="opisHotela" cols="30" rows="7" maxlength="200" required #opisHotela></textarea>
+      </tr>
+    </table>
+    <button (click)="addSmestaj(imeHotela, brojSoba, opisHotela)" class="btn btn-primary">Dodaj smeštaj</button>
+  </form>
+  <button class="dugme btn btn-primary" (click)="shuffleSmestaj()">Prikaži nasumični prikaz smeštaja</button><br />
+</div>
+<div class="smestaj">
+  <app-smestaj *ngFor="let smestaj of lista_svih_smestaja" [smestaj]="smestaj"></app-smestaj>
+</div>
