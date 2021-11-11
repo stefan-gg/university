@@ -1,0 +1,45 @@
+body{
+    text-align: center;
+    background-image: url("../backgrounds/computer.jpg");    
+    background-size: cover;
+    padding: 10px;
+    position:relative;
+}
+
+body:before{
+    content:'';
+    position:absolute;
+    z-index:-1;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    filter:blur(8px);
+    box-shadow:inset 0 0 0 50vw rgba(255,255,255,0.4);    
+}
+
+.game{
+    width: 150px;
+    height: 170px;
+    margin-left: 10px;
+}
+
+.games{
+    margin-top: 70px;
+}
+
+.mc{
+    width: 230px;
+    height: 170px;
+    margin-left: 10px;
+}
+
+.logout{
+    margin-left: 92%;
+}
+
+/*.background{
+    height: 300px;
+    background-image: url(../backgrounds/bg.jpg);
+    background-repeat: no-repeat;
+}*/

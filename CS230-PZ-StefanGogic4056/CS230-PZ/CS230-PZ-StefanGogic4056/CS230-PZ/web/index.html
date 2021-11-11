@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Home page</title><link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/> 
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Menu</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Log in as guest options
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <div class="guest">
+                                <p>If you don't have an account you can choose one of the options :</p>
+                                <div class="choice">
+                                    <form method="POST" action="Guest">
+                                        <input type="hidden" name="time" value="60"  />
+                                        <input class="btn btn-outline-secondary" type="submit" value="Sign me up as a Guest for 1 hour "/>
+                                    </form>
+                                </div>
+                                <div class="choice">
+                                    <form method="POST" action="Guest">
+                                        <input type="hidden" name="time" value="120"  />
+                                        <input class="btn btn-outline-secondary" type="submit" value="Sign me up as a Guest for 2 hours"/>
+                                    </form>
+                                </div>
+                                <div class="choice">
+                                    <form method="POST" action="Guest">
+                                        <input type="hidden" name="time" value="180"  />
+                                        <input class="btn btn-outline-secondary" type="submit" value="Sign me up as a Guest for 3 hours"/>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link"  href="addUser.jsp">Create account<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h1 class="text-light">Welcome to the game room !</h1>
+        <div class="wrapper"></div>
+        <div class="index">
+            <div class="loginClass form-group">
+                <h4 class="font-weight-bold h4">You can log in as user or admin here :</h4>
+                <form method="POST" action="checkData.jsp">
+                    <input class="form-control"  type="text" placeholder="Username" required="" name="username" /></br>
+                    <input class="form-control" placeholder="Password" type="password" required="" name="password" /></br> 
+                    <input class="dugme btn btn-primary" type="submit" value="Log in"/>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
