@@ -8,14 +8,14 @@ import { Smestaj } from './smestaj/smestaj.model';
 })
 export class AppComponent {
   title = 'DZ05-MetHotels';
-  lista_svih_smestaja: Smestaj[];
+  public lista_svih_smestaja: Smestaj[] = [];
 
   constructor() {
     this.lista_svih_smestaja = [new Smestaj("Ime hotela", "21", "Opis hotela, opis hotela."),
     new Smestaj("Ime drugog hotela", "291", "Hotel se nalazi u sred pustinje.")];
   }
 
-  addSmestaj(imeHotela: HTMLInputElement, brojSoba: HTMLInputElement, opisHotela: HTMLTextAreaElement): boolean {
+  addSmestaj(imeHotela: HTMLInputElement, brojSoba: HTMLInputElement, opisHotela: HTMLTextAreaElement): void{
     console.log(imeHotela.value);
     console.log(brojSoba.value)
 
@@ -27,13 +27,23 @@ export class AppComponent {
     brojSoba.value = "";
     opisHotela.value = "";
 
-    return false;
+  }
+
+  deleteIzabraniSmestaj(smestaj: Smestaj) {
+    var lista = this.lista_svih_smestaja;
+    var novaLista = [];
+    for (const element of lista) {
+      if (element !== smestaj) {
+        novaLista.push(element);
+      }
+    }
+    this.lista_svih_smestaja = novaLista;
   }
 
   shuffleSmestaj() {
     let velicinaNiza = this.lista_svih_smestaja.length
 
-    while(0 !== velicinaNiza){
+    while (0 !== velicinaNiza) {
       let randomIndex = Math.floor(Math.random() * velicinaNiza);
       velicinaNiza--;
       //dolazi do zamene vrednosti izmedju 2 promenljive
@@ -41,7 +51,7 @@ export class AppComponent {
       this.lista_svih_smestaja[velicinaNiza] = this.lista_svih_smestaja[randomIndex];
       this.lista_svih_smestaja[randomIndex] = privremeni;
     }
-    
+
     return this.lista_svih_smestaja;
   }
 

@@ -59,7 +59,11 @@
     <button (click)="addSmestaj(imeHotela, brojSoba, opisHotela)" class="btn btn-primary">Dodaj smeštaj</button>
   </form>
   <button class="dugme btn btn-primary" (click)="shuffleSmestaj()">Prikaži nasumični prikaz smeštaja</button><br />
+  
 </div>
 <div class="smestaj">
-  <app-smestaj *ngFor="let smestaj of lista_svih_smestaja" [smestaj]="smestaj"></app-smestaj>
+  <div *ngFor="let smestaj of lista_svih_smestaja">
+    <app-smestaj [smestaj]="smestaj" (deleteSmestaj)="deleteIzabraniSmestaj($event)" >
+    </app-smestaj>
+  </div>
 </div>

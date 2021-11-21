@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {Smestaj} from './smestaj.model';
 
 @Component({
@@ -7,10 +7,16 @@ import {Smestaj} from './smestaj.model';
   styleUrls: ['./smestaj.component.css']
 })
 export class SmestajComponent implements OnInit {
-  @Input() smestaj: Smestaj;
+  
+  @Output() deleteSmestaj: EventEmitter<Smestaj>;
+  @Input() smestaj: any;
   
   constructor() {
-    this.smestaj = new Smestaj('', '', '');
+    this.deleteSmestaj = new EventEmitter();
+  }
+
+  public obrisi(): void {
+    this.deleteSmestaj.emit(this.smestaj);
   }
 
   ngOnInit(): void {

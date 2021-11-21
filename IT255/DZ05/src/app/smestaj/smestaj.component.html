@@ -29,9 +29,10 @@
 </style>
 <div class="opisSmestaja">
     <div class="imeISlika">
-        <img src="assets/img/slikasobe.jpg" alt="">
-        <h4 class="imeHotela">{{ smestaj.imeHotela }}</h4>
+        <img src="assets/img/slikasobe.jpg" alt="slika sobe sa bračnim krevetom">
+        <h4 class="imeHotela"><input type="text" value="{{ smestaj.imeHotela }}" #imeHotela></h4>
     </div>
-    <p class="brojSoba">Broj soba : {{ smestaj.brojSoba }}</p>
-    <p class="opisHotela">{{ smestaj.opisHotela }}</p>
+    <p class="brojSoba">Broj soba : <input class="brojSoba" type="number" value="{{ smestaj.brojSoba }}"></p>
+    <p class="opisHotela"><textarea cols="30" rows="7">{{ smestaj.opisHotela }}</textarea></p>
+    <button (click)="obrisi()" class="btn btn-danger" >Obriši</button>
 </div>

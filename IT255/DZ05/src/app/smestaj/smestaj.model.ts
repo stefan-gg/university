@@ -1,4 +1,5 @@
 export class Smestaj {
+    
     imeHotela: string;
     opisHotela: string;
     brojSoba: string;
