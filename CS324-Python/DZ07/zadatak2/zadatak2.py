@@ -39,3 +39,5 @@ for ime_predmeta, podaci in predmeti.items():
 
 rezultat = vratiPodatkeZaProfesora("Dubravka Vlahović")
 print(rezultat)
+
+connection.close()
