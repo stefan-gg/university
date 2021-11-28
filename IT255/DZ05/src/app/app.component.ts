@@ -15,17 +15,18 @@ export class AppComponent {
     new Smestaj("Ime drugog hotela", "291", "Hotel se nalazi u sred pustinje.")];
   }
 
-  addSmestaj(imeHotela: HTMLInputElement, brojSoba: HTMLInputElement, opisHotela: HTMLTextAreaElement): void{
-    console.log(imeHotela.value);
-    console.log(brojSoba.value)
+  addSmestaj(smestaj: Smestaj): void {
+    //console.log(imeHotela.value);
+    //console.log(brojSoba.value)
 
-    this.lista_svih_smestaja.push(new Smestaj(imeHotela.value, brojSoba.value, opisHotela.value));
+    //this.lista_svih_smestaja.push(new Smestaj(imeHotela.value, brojSoba.value, opisHotela.value));
 
+    this.lista_svih_smestaja.push(smestaj);
     console.log(this.lista_svih_smestaja);
 
-    imeHotela.value = "";
-    brojSoba.value = "";
-    opisHotela.value = "";
+    //imeHotela.value = "";
+    //brojSoba.value = "";
+    //opisHotela.value = "";
 
   }
 
@@ -41,7 +42,7 @@ export class AppComponent {
   }
 
   shuffleSmestaj() {
-    let velicinaNiza = this.lista_svih_smestaja.length
+    let velicinaNiza = this.lista_svih_smestaja.length;
 
     while (0 !== velicinaNiza) {
       let randomIndex = Math.floor(Math.random() * velicinaNiza);
