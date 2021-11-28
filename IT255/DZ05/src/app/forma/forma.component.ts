@@ -42,7 +42,4 @@ export class FormaComponent implements OnInit {
     this.dodajSmestaj.emit(new Smestaj(forma.imeHotela, forma.brojSoba, forma.opisHotela));
     console.log("nije gore moze lose");
   }
-  //public dodaj(): void{
-  //  this.dodajSmestaj.emit();
-  //}
 }

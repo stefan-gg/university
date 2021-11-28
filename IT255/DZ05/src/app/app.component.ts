@@ -16,18 +16,8 @@ export class AppComponent {
   }
 
   addSmestaj(smestaj: Smestaj): void {
-    //console.log(imeHotela.value);
-    //console.log(brojSoba.value)
-
-    //this.lista_svih_smestaja.push(new Smestaj(imeHotela.value, brojSoba.value, opisHotela.value));
-
     this.lista_svih_smestaja.push(smestaj);
     console.log(this.lista_svih_smestaja);
-
-    //imeHotela.value = "";
-    //brojSoba.value = "";
-    //opisHotela.value = "";
-
   }
 
   deleteIzabraniSmestaj(smestaj: Smestaj) {
