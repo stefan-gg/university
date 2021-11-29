@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SmestajComponent } from './smestaj/smestaj.component';
 import { FormaComponent } from './forma/forma.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SmestajService } from './services/smestaj.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [SmestajService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

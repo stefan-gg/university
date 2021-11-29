@@ -14,7 +14,7 @@
         align-items: center;
     }
 
-    .imeISlika{
+    .imeISlika {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -26,6 +26,23 @@
         width: 150px;
         margin-right: 30px;
     }
+
+    .rezervacija {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .reserve {
+        margin-left: 10px;
+        height: 40px;
+    }
+
+    .input {
+        text-align: center;
+        width: 30px;
+    }
 </style>
 <div class="opisSmestaja">
     <div class="imeISlika">
@@ -34,5 +51,14 @@
     </div>
     <p class="brojSoba">Broj soba : <input class="brojSoba" type="number" value="{{ smestaj.brojSoba }}"></p>
     <p class="opisHotela"><textarea cols="30" rows="7">{{ smestaj.opisHotela }}</textarea></p>
-    <button (click)="obrisi()" class="btn btn-danger" >Obriši</button>
+    <p class="rezervacija">Cena sobe za 1 dan : {{ smestaj.cenaSobe }}$</p>
+    <p class="rezervacija">Cena sobe za uneti broj dana : {{ izracunajCenu() }}$</p>
+
+    <div class="rezervacija">
+        <button (click)="otkaziJednuNoc()" class="reserve btn btn-danger">-</button>
+        <input type="text" value="{{ smestaj.brojRezervisanihDana }}" class="reserve input">
+        <button (click)="dodajJednuNoc()" class="reserve btn btn-danger">+</button>
+    </div>
+
+    <button (click)="obrisi()" class="btn btn-danger">Obriši</button>
 </div>

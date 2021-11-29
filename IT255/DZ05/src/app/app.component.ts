@@ -11,8 +11,8 @@ export class AppComponent {
   public lista_svih_smestaja: Smestaj[] = [];
 
   constructor() {
-    this.lista_svih_smestaja = [new Smestaj("Ime hotela", "21", "Opis hotela, opis hotela."),
-    new Smestaj("Ime drugog hotela", "291", "Hotel se nalazi u sred pustinje.")];
+    this.lista_svih_smestaja = [new Smestaj("Ime hotela", "21", "Opis hotela, opis hotela.", 23, 3),
+    new Smestaj("Ime drugog hotela", "291", "Hotel se nalazi u sred pustinje.", 2, 2)];
   }
 
   addSmestaj(smestaj: Smestaj): void {

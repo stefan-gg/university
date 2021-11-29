@@ -22,12 +22,15 @@
   }
 
   .smestaj {
-    width: 300px;
-    margin-left: 44%;
+    display: flex;
+    width: fit-content;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
-  .form,
-  .smestaj {
+  .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,8 +45,8 @@
 <div class="form">
   <app-forma (dodajSmestaj)="addSmestaj($event)"></app-forma>
   <button class="dugme btn btn-primary" (click)="shuffleSmestaj()">Prikaži nasumični prikaz smeštaja</button><br />
-
 </div>
+
 <div class="smestaj">
   <div *ngFor="let smestaj of lista_svih_smestaja">
     <app-smestaj [smestaj]="smestaj" (deleteSmestaj)="deleteIzabraniSmestaj($event)">

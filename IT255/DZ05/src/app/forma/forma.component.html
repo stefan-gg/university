@@ -11,18 +11,25 @@
             <td><input type="text" name="imeHotela" id="ime" formControlName="imeHotela"><br /></td>
 
         </tr>
-        <p class="text-danger" *ngIf="!imeHotela.valid">Ime hotela ne zadovoljava kriterijum odnosno sadrži brojeve ili nedozvoljene znake !!</p>
+        <p class="text-danger" *ngIf="!imeHotela.valid && imeHotela.touched">Ime hotela ne zadovoljava kriterijum
+            odnosno sadrži brojeve ili nedozvoljene znake !!</p>
         <tr>
             <td><label for="brojSoba">Broj soba</label></td>
             <td><input type="number" name="brojSoba" id="broj" formControlName="brojSoba"></td>
         </tr>
-        <p class="text-danger" *ngIf="!brojSoba.valid">Broj soba ne sme da sadrži slova !!</p>
+        <p class="text-danger" *ngIf="!brojSoba.valid && brojSoba.touched">Broj soba ne sme da sadrži slova !!</p>
         <tr>
             <td><label for="opisHotela">Opis smeštaja</label></td>
-            <textarea name="opisHotela" id="opisHotela" cols="30" rows="7" maxlength="200" required
-                formControlName="opisHotela"></textarea>
+            <td><textarea name="opisHotela" id="opisHotela" cols="30" rows="7" maxlength="200" required
+                    formControlName="opisHotela"></textarea></td>
         </tr>
-        <p class="text-danger" *ngIf="!opisHotela.valid">Opis hotela ne zadovoljava kriterijum (6 karaktera minum mora da sadrži) !!</p>
+        <p class="text-danger" *ngIf="!opisHotela.valid && opisHotela.touched">Opis hotela ne zadovoljava kriterijum (6
+            karaktera minum mora da sadrži) !!</p>
+        <tr>
+            <td><label for="cenaSobe">Unesite cenu sobe za 1 dan :</label></td>
+            <td><input type="number" name="cenaSobe" id="cenaSobe" formControlName="cenaSobe"></td>
+            <p class="text-danger" *ngIf="!cenaSobe.valid && cenaSobe.touched">Morate da unesete cenu sobe za 1 dan!</p>
+        </tr>
     </table>
     <button class="btn btn-primary" type="submit" [disabled]="!forma.valid">Dodaj smeštaj</button>
 </form>
