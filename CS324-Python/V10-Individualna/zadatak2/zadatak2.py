@@ -23,9 +23,9 @@ for broj in neparne_matrice:
 
 #1. do 8. reda 7 8 9 matrice
 print("Od prvog do osmog reda 7, 8 i 9 matrice")
-print(niz[7, 0:8, :])
-print(niz[8, 0:8, :])
-print(niz[9, 0:8, :])
+print(niz[7, 0, 0:9])
+print(niz[8, 0, 0:9])
+print(niz[9, 0, 0:9])
 
 #svi redovi poslednje matrice
 print("Svi redovi poslednje matrice")
