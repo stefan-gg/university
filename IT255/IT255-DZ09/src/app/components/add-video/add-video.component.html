@@ -1,0 +1,19 @@
+<form [formGroup]="videoForm" (ngSubmit)="submitForm()">
+    <div class="col mb-4 single-input">
+      <label for="title">Title</label>
+      <input formControlName="title" type="text" name="title">
+    </div>
+
+    <div class="col mb-4 single-input">
+        <label for="description">Description</label>
+        <input formControlName="description" type="text" name="description">
+    </div>
+   
+    <div class="col mb-4 single-input">
+        <label for="link">Link</label>
+        <input formControlName="link" type="text" name="link">
+    </div>
+    <div class="col button-holder d-flex justify-content-center align-items-center mt-4">
+      <button type="submit" name="submit" class="btn btn-success w-50">Dodaj</button>
+    </div>
+  </form>

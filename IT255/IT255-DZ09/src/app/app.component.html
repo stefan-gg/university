@@ -1,0 +1,21 @@
+<div class="container mt-4 mb-4">
+  <div class=" mb-5">
+    <h3>Search</h3>
+      <input [(ngModel)]="searchText" placeholder="search text goes here">
+    </div>
+    <div class="mt-2 mb-5">
+      <a href="#" (click)="addVideo()" class="btn btn-primary">Dodaj video</a>
+    </div>
+    <div class="mt-2 mb-5">
+      <a href="#" (click)="sort('desc')" class="btn btn-primary">Sortiraj opadacuje</a>
+      <a href="#" (click)="sort('asc')" class="btn btn-primary">Sortiraj rastuce</a>
+    </div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let video of videos | filter : searchText; index as i; ">
+      <app-video-box 
+      (videoToDelete)="deleteVideo($event)"
+      (updateVideo)="updateVideo($event)"
+      [video]="video"></app-video-box>
+    </div>
+  </div>
+</div>
