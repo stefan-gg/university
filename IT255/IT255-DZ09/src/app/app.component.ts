@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { YouTubeSearchService } from './components/video-box/you-tube-search.service';
+import { YouTubeSearchService } from './components/video-box/you-tube-search/you-tube-search.service';
 import { Video } from './models/video';
 
 @Component({
