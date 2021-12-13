@@ -20,15 +20,16 @@ for broj in podaci["Ocena"]:
     brojac += 1
     srednje_ocene.append(suma / brojac)
 
-print(prebrojani_podaci)
+predmeti = podaci["Predmet"].copy()
+for predmet in range(len(predmeti)):
+    predmeti[predmet] = predmeti[predmet][:2]
+
+brojac_ocena = Counter(predmeti)
 
 # pie graph
 for ocena, broj in prebrojani_podaci.items():
     broj_ocena.append(broj)
     ocene.append(ocena)
-
-print(broj_ocena)
-print(ocene)
 
 figura_1 = figura.add_subplot(2, 2, 1)
 figura_1.pie(broj_ocena, labels=ocene, autopct="%.1f%%",
@@ -36,7 +37,7 @@ figura_1.pie(broj_ocena, labels=ocene, autopct="%.1f%%",
 
 # horizontalni graph
 figura_2 = figura.add_subplot(2, 2, 2)
-plt.barh(list(prebrojani_podaci.keys()), list(prebrojani_podaci.values()))
+plt.barh(list(brojac_ocena.keys()), list(brojac_ocena.values()))
 plt.ylabel("Ocena")
 plt.xlabel("Broj ocena")
 
@@ -45,4 +46,5 @@ figura_3 = figura.add_subplot(2, 2, (3, 4))
 plt.plot(range(len(podaci["Ocena"])), srednje_ocene, "g-", label="Prosek")
 plt.plot(range(len(podaci["Ocena"])), podaci["Ocena"], "ro", label="Ocena")
 
+#plt.savefig("slika/student_izvestaj.png")
 plt.show()
