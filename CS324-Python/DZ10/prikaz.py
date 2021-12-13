@@ -46,5 +46,5 @@ figura_3 = figura.add_subplot(2, 2, (3, 4))
 plt.plot(range(len(podaci["Ocena"])), srednje_ocene, "g-", label="Prosek")
 plt.plot(range(len(podaci["Ocena"])), podaci["Ocena"], "ro", label="Ocena")
 
-#plt.savefig("slika/student_izvestaj.png")
+plt.savefig("slika/student_izvestaj.png")
 plt.show()
