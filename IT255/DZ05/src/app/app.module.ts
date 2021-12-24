@@ -7,12 +7,16 @@ import { SmestajComponent } from './smestaj/smestaj.component';
 import { FormaComponent } from './forma/forma.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SmestajService } from './services/smestaj.service';
+import { SingleSmestajComponent } from './single-smestaj/single-smestaj.component';
+import { SmestajiComponent } from './smestaji/smestaji.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SmestajComponent,
-    FormaComponent
+    FormaComponent,
+    SingleSmestajComponent,
+    SmestajiComponent
   ],
   imports: [
     BrowserModule,
