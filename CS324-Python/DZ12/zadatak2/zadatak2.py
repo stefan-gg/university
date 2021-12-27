@@ -43,14 +43,14 @@ praceni_podaci = ["cs_101_ocena", "cs_115_ocena"]
 podaci_izvuceni = podaci[praceni_podaci]
 predvidjanje = "cs_115_ocena"
 
-# 1 deo
+# 1. deo
 x = np.array(podaci_izvuceni.drop([predvidjanje], 1))
 y = np.array(podaci[predvidjanje])
 
 prikazEstimiranihVrednosti(x, y, 0.75, "cs_101_ocena")
 prikazEstimiranihVrednosti(x, y, 0.90, "cs_101_ocena")
 
-# 2 deo
+# 2. deo
 praceni_podaci = ["cs115_izostanci", "cs_115_ocena"]
 podaci_izvuceni = podaci[praceni_podaci]
 predvidjanje = "cs_115_ocena"
