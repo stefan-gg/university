@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Smestaj } from './smestaj/smestaj.model';
+import { Smestaj } from './models/smestaj.model';
 
 @Component({
   selector: 'app-root',

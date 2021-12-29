@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SmestajService } from './services/smestaj.service';
 import { SingleSmestajComponent } from './single-smestaj/single-smestaj.component';
 import { SmestajiComponent } from './smestaji/smestaji.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './app.state';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { SmestajiComponent } from './smestaji/smestaji.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducers)
   ],
   providers: [SmestajService],
   bootstrap: [AppComponent]

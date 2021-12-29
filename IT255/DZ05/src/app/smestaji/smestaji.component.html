@@ -47,7 +47,7 @@
     <button class="dugme btn btn-primary" (click)="shuffleSmestaj()">Prikaži nasumični prikaz smeštaja</button><br />
 </div>
 <div class="smestaj">
-    <div *ngFor="let smestaj of lista_svih_smestaja; index as i;">
+    <div *ngFor="let smestaj of smestaji; index as i;">
         <a class="btn btn-secondary" [routerLink]="['/smestaj', i]">Pogledaj smeštaj</a>
         <app-smestaj [smestaj]="smestaj" (deleteSmestaj)="deleteIzabraniSmestaj($event)">
         </app-smestaj>

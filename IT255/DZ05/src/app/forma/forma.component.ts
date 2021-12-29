@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { from } from 'rxjs';
-import { Smestaj } from '../smestaj/smestaj.model';
+import { Smestaj } from '../models/smestaj.model';
 
 @Component({
   selector: 'app-forma',
