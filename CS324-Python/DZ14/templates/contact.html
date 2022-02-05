@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <p>Short details about me :</p>
+
+    {% for contact in contacts %}
+        <p>My name -> <strong>{{ contact.name }}</strong></p>
+        <p>My age -><strong>{{ contact.age }}</strong></p>
+        <p>Email me -> <strong>{{ contact.email }}</strong> </p>
+    {% endfor %}
+{% endblock %}
