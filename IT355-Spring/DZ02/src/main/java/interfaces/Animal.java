@@ -2,5 +2,5 @@ package interfaces;
 
 public interface Animal {
     String feedTheAnimal();
-    String response();
+    void response() throws Throwable;
 }

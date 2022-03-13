@@ -9,7 +9,8 @@ public class Dog implements Animal {
     }
 
     @Override
-    public String response() {
-        return "*Dog sounds*";
+    public void response() throws Throwable {
+        System.out.println("*Dog sounds*");
+        throw new Exception("Dog exception");
     }
 }
