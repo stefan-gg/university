@@ -1,0 +1,8 @@
+Smart contract
+A smart contract is a digital contract written as a piece of code, stored on the blockchain, and automatically executed when certain pre-established conditions are met. 
+
+Smart Contract holds several similarities with a normal contract but is a digital contract with a bit of added functionalities. It is an assortment of agreements that are stored on a blockchain as codes. They are set up with pre-arranged conditions and these contracts automatically execute only if the conditions are met. A Smart Contract once set up cannot be hampered or meddled.
+
+In addition to it, Smart Contracts being stored on a blockchain make it near impossible to tamper with. So if you’re thinking that a hacker will meddle with it, don’t worry, no hacker in their right minds will alter the contract on the blockchain. So Smart Contracts are safe and unalterable.
+	When is smart contract coded ?
+The said process is executed during the minting of the NFT. During the process of minting the code of the Smart Contract is fabricated. With this, the particular NFT will be added to the respective blockchain. By now several standards are available for the Smart Contracts of NFTs. The most relevant one is the standards in Ethereum and they are ERC721 and ERC1155 Let’s check out the standards in the Ethereum blockchain.

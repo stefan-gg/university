@@ -1,0 +1,7 @@
+cd nft/Scripts
+activate
+
+pip install Cython(ukoliko nije instaliran, možda će morati da se instalira i ->>  https://visualstudio.microsoft.com/visual-cpp-build-tools <-- visualstudio build tools sa linka)
+pip install web3
+
+https://remix.ethereum.org/#optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.7+commit.e28d00a7.js

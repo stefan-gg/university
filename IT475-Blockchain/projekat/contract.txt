@@ -1,0 +1,18 @@
+OpenHeadToken Contract:
+This contract is used to facilitate a presale and a public sale for Open Head NFTs.
+The total supply of Open Head NFTs is 10,000.
+Of the 10,000 NFTs, 9,750 are available to be minted by the public, and the remaining 250 are reserved for the owner for ‘gifting’ purposes.
+While the presale is active, whitelisted users can each mint a maximum of 2 NFTs until the maximum public supply has been reached.
+While the public sale is active, users can each mint a maximum of 5 NFTs until the maximum public supply has been reached.
+Each NFT costs 0.07 ETH to mint; users should exercise caution and ensure that the correct amount of ETH is supplied, as the contract will not return any excess ETH to the user.
+For each NFT minted, 0.010256410256410256 ETH is transferred to the InitialRaffle contract address, and the remaining ETH is transferred to a wallet address controlled by the team.
+The owner can use the ‘gift’ functionality to mint up to 250 NFTs to any address at any time.
+In the event that the address receiving an Open Head NFT is a contract, the contract must have implemented the onERC721Received() function in order to successfully receive the NFT.
+The token URI associated with each NFT is determined using the NFT’s token ID and the starting index value stored in the contract.
+The starting index value is based on the starting index block number, which is set immediately after all the publicly available NFTs have been sold or after the owner has ‘revealed’ the true base URI.
+The team’s wallet address and the InitialRaffle contract address are set on deployment and cannot be changed.
+The base URI value is set on deployment, but is not meant to be the final base URI. This is intended so that users will not know which Open Head NFT they have received until the true base URI is revealed.
+The owner can change the base URI value only one time, revealing the true base URI.
+The owner can add or remove any address from the presale whitelist at any time.
+The owner can toggle the presale and the public sale at any time.
+This contract complies with the ERC721 standard.
