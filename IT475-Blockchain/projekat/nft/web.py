@@ -6,11 +6,11 @@ web3 = Web3(Web3.HTTPProvider(ganache_url))
 #provera konekcije
 print(web3.isConnected())
 
-account_1 = "0x5BF2458511f404E48cD97461f8b8060e678FA87b"
-account_2 = "0xd89771ae5ed5ED1B98D1092049516aeBfDebf78c"
+account_1 = "0xa09Ff79B07e23139821c80E2c4A5A2092DA782F0"
+account_2 = "0x44f63E14fe2729dD5be91cF23A319773CD06386f"
 #preko privatnog ključa proveravamo dal je ok
 #da se šalje 
-private_key = "87aa2ec273361ad324fedac677964648f7237d8425120fba07bddf6d6fb68414"
+private_key = "3f2b512ad68e38cc6b69d0712f041c3c70643d234c3e3b6b3aa9600eda160d0d"
 
 # build transaction
 # sign transaction

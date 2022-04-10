@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>All exams</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>All exams</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-  <h1>All exams</h1>
-  <table class="table table-striped table-responsive-md">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Picked</th>
-      <th>Scheduled</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="exam :  ${listExams}">
-      <td th:text="${exam.name}"></td>
-      <form action="#" th:action="@{/saveExam}" th:object="${exam}" th:method ="POST">
-
-          <td><select id="picked">
-              <option th:text="${exam.picked}"></option>
-              <option value="0">Schedule</option>
-              <option value="1">Un schedule</option>
-        </select></td>
-          <button type="submit" name="submit" value="value" class="btn btn-danger">Schedule/Un schedule exam</button>
-        </form>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+    <table class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Picked</th>
+            <th>Scheduled</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="exam :  ${listExams}">
+                <td th:text="${exam.name}"></td>
+                <td th:text="${exam.picked}"></td>
+                <td><a th:href="@{/saveChanges/{id}(id=${exam.id})}" class="btn btn-primary">Schedule/Un schedule exam</a></td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>

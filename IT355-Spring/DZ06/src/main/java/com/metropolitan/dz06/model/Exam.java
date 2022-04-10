@@ -1,4 +1,4 @@
-package com.metropolitan.models;
+package com.metropolitan.dz06.model;
 
 import javax.persistence.*;
 
@@ -15,7 +15,7 @@ public class Exam {
     private String name;
 
     @Column(name = "picked", nullable = false)
-    private Boolean picked;
+    private String picked;
 
     public Integer getId() {
         return id;
@@ -33,11 +33,11 @@ public class Exam {
         this.name = name;
     }
 
-    public Boolean getPicked() {
+    public String getPicked() {
         return picked;
     }
 
-    public void setPicked(Boolean picked) {
+    public void setPicked(String picked) {
         this.picked = picked;
     }
 }
