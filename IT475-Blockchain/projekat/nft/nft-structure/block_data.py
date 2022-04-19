@@ -6,3 +6,6 @@ class BlockData:
         self.data['owner'] = owner
         self.data['price'] = price
         self.data['nft_art'] = nft_art
+# added
+    def __str__(self):
+        return self.data['owner'] + self.data['price']
