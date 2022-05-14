@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * This class is a REST controller that handles HTTP requests for the Exam entity.
+ */
 @RestController
 @RequestMapping("/exams")
 @RequiredArgsConstructor

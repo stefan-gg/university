@@ -2,6 +2,9 @@ package com.metropolitan.dz08.model;
 
 import javax.persistence.*;
 
+/**
+ * It's a Java entity class that represents the users_table table
+ */
 @Entity
 @Table(name = "users_table")
 public class User {

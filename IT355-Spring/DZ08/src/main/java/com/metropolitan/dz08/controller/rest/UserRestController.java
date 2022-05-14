@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * This class is a REST controller that handles all the HTTP requests for the User entity.
+ */
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor

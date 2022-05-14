@@ -4,6 +4,7 @@ import com.metropolitan.dz08.model.User;
 
 import java.util.List;
 
+// A Java interface.
 public interface UserDao {
 
     User add(User user);

@@ -14,6 +14,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import java.util.Properties;
 
 
+/**
+ * It's a configuration class that enables transaction management and scans the package
+ * com.metropolitan.dz08.model for annotated classes
+ */
 @Configuration
 @EnableTransactionManagement
 @ComponentScans(value = {

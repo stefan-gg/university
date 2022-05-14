@@ -4,6 +4,7 @@ import com.metropolitan.dz08.model.Exam;
 
 import java.util.List;
 
+// A service interface.
 public interface ExamService {
     List<Exam> findAll();
 

@@ -6,6 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ * Exam is a entity class that has an id, name, and picked.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

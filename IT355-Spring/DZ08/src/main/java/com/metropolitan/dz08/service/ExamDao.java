@@ -4,6 +4,7 @@ import com.metropolitan.dz08.model.Exam;
 
 import java.util.List;
 
+// A DAO interface.
 public interface ExamDao {
     List<Exam> findAll();
 

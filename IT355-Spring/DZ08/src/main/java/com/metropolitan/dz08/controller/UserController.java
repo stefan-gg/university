@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * This class is a controller class that handles all the requests from the user.
+ */
 @Controller
 public class UserController {
 
