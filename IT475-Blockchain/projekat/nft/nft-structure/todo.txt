@@ -1,9 +1,8 @@
-organizacija mora da se poboljša malo (ili da dodamo komentari na početku svakog fajla šta sadrži)
-delovalo mi kao da se moze smanji nesto tj. da se spoji mada cu pogledam opet jer gledam na net sto jedan lik radeo pa mi se cini mozda samo
-
-cu dodam veceras za validaciju i za minovanje kao(danas je 14.5 kad sam ovo commitovao)
-validacija je bitnija minovanje ako nam se posvidja ok ako ne nista
-
-napravio sam izmene u :
-block.py block_data.py -> importovao sam klase da bude jasnije samo šta se koristi
-block_header -> dodao sam mining kao nesto u onu hash funkciju pa ako treba ce uklonimo 
+napraviti bar 3 slike 
+slike importovati u listu u main i ispitati da li su unique
+ukoliko su sve slike unique ubaciti ih redom kao nft art
+nft art hesirati i hash koristiti kao token id za taj nft art
+dodati nft art i ostale podatke u block data
+block data dodati u blockheader kao i ostale podatke i napraviti hash i cuvati hash u blockheader
+blockheader i transaction dodati u block objekat
+block objekat cuvati u blockchain listu i napraviti funkciju koja smesta hash kao previous hash u svaki block

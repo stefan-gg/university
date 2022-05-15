@@ -7,9 +7,9 @@ class BlockHeader:
         self.timestamp = datetime.now()
         self.difficulty_target = difficulty_target
         self.nonce = nonce
-        self.block_hash = self.set_block_hash()
         self.block_data = block_data
-
+        self.block_hash = self.set_block_hash()
+        
     #stara funkcija
     #def set_block_hash(self):
     #    str_to_hash = self.previous_hash + ' ' + str(self.timestamp) + ' ' + str(self.difficulty_target) + ' ' + str(self.nonce) + ' ' + str(self.block_data)
