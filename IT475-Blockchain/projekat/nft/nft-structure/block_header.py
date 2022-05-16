@@ -9,12 +9,6 @@ class BlockHeader:
         self.nonce = nonce
         self.block_data = block_data
         self.block_hash = self.set_block_hash()
-        
-    #stara funkcija
-    #def set_block_hash(self):
-    #    str_to_hash = self.previous_hash + ' ' + str(self.timestamp) + ' ' + str(self.difficulty_target) + ' ' + str(self.nonce) + ' ' + str(self.block_data)
-    #    hashed_value = hashlib.sha256(str_to_hash.encode('utf-8')).hexdigest()
-    #    return hashed_value
     
     def validate_hash(self):
 
@@ -27,18 +21,12 @@ class BlockHeader:
 
     #nova funkcija 
     def set_block_hash(self):
-        #proof_of_work = 1
         hash_is_valid = False 
         hashed_value = ""
 
         while not hash_is_valid:
-            #ostavio sam u 2 promenljive umesto u 1 da bi bilo manje prenatrpano
-            #jer u 1 liniju da je nema se vidi sve lepo
 
-            str_to_hash = self.previous_hash 
-            + str(self.timestamp) 
-            + str(self.difficulty_target)
-            + str(self.nonce) + str(self.block_data)
+            str_to_hash = str(self.previous_hash) + str(self.timestamp) + str(self.difficulty_target) + str(self.nonce) + str(self.block_data)
             
             hashed_value = hashlib.sha256(str_to_hash.encode('utf-8')).hexdigest()
             
