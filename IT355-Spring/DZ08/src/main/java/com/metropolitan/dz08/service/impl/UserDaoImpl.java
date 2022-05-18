@@ -2,9 +2,7 @@ package com.metropolitan.dz08.service.impl;
 
 import com.metropolitan.dz08.model.User;
 import com.metropolitan.dz08.service.UserDao;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -28,6 +26,14 @@ public class UserDaoImpl implements UserDao {
        @SuppressWarnings("unchecked")
        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
        return query.getResultList();
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        @SuppressWarnings("unchecked")
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User u where u.username=:username")
+                .setParameter("username", username);
+        return query.getSingleResult();
     }
 
     @Override

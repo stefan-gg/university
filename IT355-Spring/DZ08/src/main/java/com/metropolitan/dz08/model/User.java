@@ -1,10 +1,17 @@
 package com.metropolitan.dz08.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 /**
  * It's a Java entity class that represents the users_table table
  */
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "users_table")
 public class User {
@@ -18,29 +25,5 @@ public class User {
 
     @Column(name = "password", nullable = false)
     private String password;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
 
