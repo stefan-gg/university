@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="container">
+  <a class="btn btn-secondary" href="http://localhost:8080/logout">Logout</a>
   <h1>Save user</h1>
   <form action="#" th:action="@{/saveUser}" th:object="${user}" th:method ="POST">
     <input type="hidden" th:field="*{id}">
