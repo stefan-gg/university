@@ -6,4 +6,4 @@ class Block():
         self.transaction = trasaction
     
     def __str__(self):
-        return "Block header: " + self.block_header + ", Transaction: " + self.transaction
+        return "Block header: " + str(self.block_header) + ", Transaction: " + str(self.transaction)

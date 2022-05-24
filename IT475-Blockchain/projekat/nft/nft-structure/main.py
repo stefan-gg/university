@@ -6,6 +6,7 @@ from block_data import BlockData
 from block_header import BlockHeader
 from transaction import Transaction
 from block import Block
+import time
 
 def loadImages(path):
     imagesList = listdir(path)
@@ -39,10 +40,12 @@ for img in images:
     block = Block(b_header, transaction)
 
     blockchain.append(block)
+
+    time.sleep(1)
     counter += 1
 
 for block in blockchain:
-    print(block)
+    print(block, end='\n\n')
 
 # ******
 # ako hocemo da unosimo nasi podaci doraditi kod ispod

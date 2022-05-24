@@ -11,7 +11,7 @@ class BlockHeader:
         self.block_hash = self.set_block_hash()
     
     def __str__(self):
-        return "Previous hash: " + self.previous_hash + ", Timestamp: " + self.timestamp + ", Nonce: " + self.nonce + ", Diff targer: " + self.difficulty_target + ", Block data: " + self.block_data + ", Block hash: " + self.block_hash
+        return "Previous hash: " + str(self.previous_hash) + ", Timestamp: " + str(self.timestamp) + ", Nonce: " + str(self.nonce) + ", Diff targer: " + str(self.difficulty_target) + ", Block data: " + str(self.block_data) + ", Block hash: " + str(self.block_hash)
 
     def validate_hash(self):
 
@@ -38,4 +38,5 @@ class BlockHeader:
             else:
                 self.nonce += 1
 
-            return hashed_value
+        
+        return hashed_value

@@ -11,4 +11,4 @@ class Transaction:
         self.timestamp = datetime.now()
     
     def __str__(self):
-        return "Seller: " + self.seller + ", Buyer: " + self.buyer + ", Price: " + self.price + ", NFT art: " + self.nft_art + ", Gas fee: " + self.gas_fee + ", Wei: " + self.wei_fee + ", Timestamp: " + self.timestamp
+        return "Seller: " + str(self.seller) + ", Buyer: " + str(self.buyer) + ", Price: " + str(self.price) + ", NFT art: " + str(self.nft_art) + ", Gas fee: " + str(self.gas_fee) + ", Wei: " + str(self.wei_fee) + ", Timestamp: " + str(self.timestamp)
