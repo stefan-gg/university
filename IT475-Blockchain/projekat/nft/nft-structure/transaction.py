@@ -9,3 +9,6 @@ class Transaction:
         self.gas_fee = gas_fee
         self.wei_fee = wei_fee
         self.timestamp = datetime.now()
+    
+    def __str__(self):
+        return "Seller: " + self.seller + ", Buyer: " + self.buyer + ", Price: " + self.price + ", NFT art: " + self.nft_art + ", Gas fee: " + self.gas_fee + ", Wei: " + self.wei_fee + ", Timestamp: " + self.timestamp

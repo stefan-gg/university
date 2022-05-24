@@ -26,6 +26,7 @@ counter = 0
 
 blockchain = []
 
+# Loading the images from the folder and adding them to the blockchain.
 for img in images:
     art = NFTArt(img)
     b_data = BlockData()
@@ -39,3 +40,15 @@ for img in images:
 
     blockchain.append(block)
     counter += 1
+
+for block in blockchain:
+    print(block)
+
+# ******
+# ako hocemo da unosimo nasi podaci doraditi kod ispod
+# ******
+#name = input("Enter your name")
+#picture_name = input("Enter the name of the nft you would like to buy >>")
+# if picture_name in images:
+    # art = NFTArt(picture_name)
+    # b_data = BlockData()

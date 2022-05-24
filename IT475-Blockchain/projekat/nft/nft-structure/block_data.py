@@ -11,4 +11,4 @@ class BlockData:
         self.data['nft_art'] = nft_art
 
     def __str__(self):
-        return self.data['owner'] + " " + self.data['price'] + str(self.data['nft_art'])
+        return "Owner: " + self.data['owner'] + ", Price: " + self.data['price'] + ", NFT art: " + str(self.data['nft_art'])

@@ -10,6 +10,9 @@ class BlockHeader:
         self.block_data = block_data
         self.block_hash = self.set_block_hash()
     
+    def __str__(self):
+        return "Previous hash: " + self.previous_hash + ", Timestamp: " + self.timestamp + ", Nonce: " + self.nonce + ", Diff targer: " + self.difficulty_target + ", Block data: " + self.block_data + ", Block hash: " + self.block_hash
+
     def validate_hash(self):
 
         hash = self.set_block_hash()

@@ -4,3 +4,6 @@ class Block():
     def __init__(self, block_header: BlockHeader, trasaction: Transaction):
         self.block_header = block_header
         self.transaction = trasaction
+    
+    def __str__(self):
+        return "Block header: " + self.block_header + ", Transaction: " + self.transaction
