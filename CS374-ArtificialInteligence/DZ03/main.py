@@ -5,6 +5,7 @@ from scipy import rand
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn import metrics
+import math
 
 dataset = pd.read_csv("Life_Expectancy_Data.csv")
 gdp = dataset[['GDP']]
@@ -30,7 +31,8 @@ X_test.dropna(inplace=True)
 y_train.replace([np.inf, -np.inf], np.nan, inplace=True)
 y_train.dropna(inplace=True)
 
-
+# pošto sam morao da izbacujem elemente dužine nisu iste
+# i zbog toga se min_len određuje više puta u ovom zadatku
 min_len = min(len(X_train), len(y_train))
 # Fitting a linear regression model to the data.
 regressor = LinearRegression()
@@ -40,14 +42,18 @@ regressor.fit(X_train[0:min_len], y_train[0:min_len])
 # print(regressor.coef_)
 # print("**********************")
 y_pred = regressor.predict(X_test)
+
 # Printing the actual values of y_test and the predicted values of y_pred.
 # print(y_test)
-print("********")
-print(y_pred)
-print("********")
+# print("********")
+# print(y_pred)
+# print("********")
+
 
 min_len = min(len(y_pred), len(y_train))
 
+# iz nekog razloga se pojavljivala greška opet i nisam uspeo da rešim
+# problem pa sam zbog toga uradio ovo sve to za primer ispod
 #print('Mean absolute error: ', metrics.mean_absolute_error(y_test[0:min_len], y_pred[0:min_len]))
 #print('Mean squared error: ', metrics.mean_squared_error(y_test[0:min_len], y_pred[0:min_len]))
 #print('Root mean squared error: ', metrics.mean_squared_error(y_test[0:min_len], y_pred[0:min_len]))
@@ -56,11 +62,17 @@ min_len = min(len(y_pred), len(y_train))
 df = pd.DataFrame({'Actual':y_test[0:min_len], 'Predicted': y_pred[0:min_len]})
 print(df)
 
-#plt.scatter(y_pred[0:min_len], y_test[0:min_len])
-#plt.title('y_test vs y_pred')
-#plt.xlabel('y_pred')
-#plt.ylabel('y_test')
-#plt.show()
+plt.scatter(gdp[0:min_len], y_pred[0:min_len])
+plt.title('y_pred & gdp')
+plt.ylabel('y_pred')
+plt.xlabel('gdp')
+plt.show()
+
+plt.scatter(gdp[0:min_len], y_test[0:min_len])
+plt.title('y_test & gdp')
+plt.ylabel('y_test')
+plt.xlabel('gdp')
+plt.show()
 
 # Drugi primer *****************************
 
