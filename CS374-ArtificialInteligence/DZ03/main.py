@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from scipy import rand
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn import metrics
 
 dataset = pd.read_csv("Life_Expectancy_Data.csv")
 gdp = dataset[['GDP']]
@@ -34,16 +35,24 @@ min_len = min(len(X_train), len(y_train))
 # Fitting a linear regression model to the data.
 regressor = LinearRegression()
 regressor.fit(X_train[0:min_len], y_train[0:min_len])
-print("**********************")
-print(regressor.intercept_)
-print(regressor.coef_)
-print("**********************")
+# print("**********************")
+# print(regressor.intercept_)
+# print(regressor.coef_)
+# print("**********************")
 y_pred = regressor.predict(X_test)
-print(y_test)
+# Printing the actual values of y_test and the predicted values of y_pred.
+# print(y_test)
 print("********")
 print(y_pred)
 print("********")
+
 min_len = min(len(y_pred), len(y_train))
+
+#print('Mean absolute error: ', metrics.mean_absolute_error(y_test[0:min_len], y_pred[0:min_len]))
+#print('Mean squared error: ', metrics.mean_squared_error(y_test[0:min_len], y_pred[0:min_len]))
+#print('Root mean squared error: ', metrics.mean_squared_error(y_test[0:min_len], y_pred[0:min_len]))
+
+
 df = pd.DataFrame({'Actual':y_test[0:min_len], 'Predicted': y_pred[0:min_len]})
 print(df)
 
@@ -76,6 +85,11 @@ print(df)
 # y_pred = regressor.predict(X_test)
 # df = pd.DataFrame({'Actual':y_test, 'Predicted': y_pred})
 # print(df)
+
+# print('Mean absolute error:', metrics.mean_absolute_error(y_test, y_pred))
+# print('Mean squared error:', metrics.mean_squared_error(y_test, y_pred))
+# print('Root mean squared error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+
 
 # plt.scatter(y_pred, y_test)
 # plt.title('y_test vs y_pred')
