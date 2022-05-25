@@ -37,10 +37,10 @@ min_len = min(len(X_train), len(y_train))
 # Fitting a linear regression model to the data.
 regressor = LinearRegression()
 regressor.fit(X_train[0:min_len], y_train[0:min_len])
-# print("**********************")
-# print(regressor.intercept_)
-# print(regressor.coef_)
-# print("**********************")
+print("**********************")
+print(regressor.intercept_)
+print(regressor.coef_)
+print("**********************")
 y_pred = regressor.predict(X_test)
 
 # Printing the actual values of y_test and the predicted values of y_pred.
