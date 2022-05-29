@@ -134,12 +134,10 @@ while True:
 
                             block = Block(b_header, transaction)
                             blockchain.append(block)
-                            print("*************************************************")
+                            print("Printing blockchain *************************************************")
                             for block in blockchain:
-                                print(block.block_header.block_data.data["owner"])
-                                print(block.block_header.block_data.data["nft_art"].nft_image)
+                                print(block)
                                 print(" ")
-                            print(i)                        
                             break                        
                 else:
                     sg.Popup("Inputed amout is less then required amount.", keep_on_top=True)
