@@ -20,7 +20,8 @@ def loadImages(path):
         loadedImages.append(img)
     return loadedImages
 
-path = './images/'
+#path = './images/'
+path = "C:/Users/Stefan/Desktop/git-uni/university/IT475-Blockchain/projekat/nft/nft-structure/images/"
 
 images = loadImages(path)
 owners = ['stefan', 'jovan', 'marko']
@@ -112,11 +113,32 @@ while True:
                 else:
                     flag = True
             if flag:
-                if int(NFTPrice) <= int(values[1]):
+                if float(NFTPrice) <= float(values[1]):
                     
                     #TODO: Napisati da se kupi nft i upis u blockchain
+                    
+                    name = values[0]
+                    amount = values[1]
+                    image_name = images[img_index]
+                    
+                    for block in blockchain:
+                        if block.block_header.block_data.data["nft_art"].nft_image == images[img_index]:
+                            art = NFTArt(image_name)
+                            b_data = BlockData()
+                            b_data.input_data(name, amount, art)
+                            
+                            prev_hash = blockchain[len(blockchain) - 1].block_header.block_hash
+                            b_header = BlockHeader(prev_hash, 2, 0, b_data)
 
-                    print()
+                            transaction = NULL
+
+                            block = Block(b_header, transaction)
+                            blockchain.append(block)
+
+                        for block in blockchain:
+                            print(block)
+                            print(" ")
+                        break
                 else:
                     sg.Popup("Inputed amout is less then required amount.", keep_on_top=True)
         else:
