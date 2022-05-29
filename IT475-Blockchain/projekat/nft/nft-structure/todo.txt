@@ -1,4 +1,0 @@
-treba da se napravi stranica gde ce se sadrzati slike, i forma za unos podataka pri kupovini nft-a, kad se kupi nft vlasnik moze da skine sliku ali ono sto je cini 
-jedinstvenom je to sto se na blockchain dodaje block gde se u hederu nalaze podaci ko je vlasnik trenutni tog nft-a. Nakon kupovine vlasnik moze da skine sliku kao takvu
-(najobicnija slika bilo kog formata).
-baza?
