@@ -117,7 +117,7 @@ while True:
                     
                     #TODO: Napisati da se kupi nft i upis u blockchain
                     
-                    name = values[0]
+                    buyer_name = values[0]
                     amount = values[1]
                     image_name = images[img_index]
                     
@@ -125,20 +125,19 @@ while True:
                         if block.block_header.block_data.data["nft_art"].nft_image == images[img_index]:
                             art = NFTArt(image_name)
                             b_data = BlockData()
-                            b_data.input_data(name, amount, art)
+                            b_data.input_data(buyer_name, amount, art)
                             
                             prev_hash = blockchain[len(blockchain) - 1].block_header.block_hash
                             b_header = BlockHeader(prev_hash, 2, 0, b_data)
 
-                            transaction = NULL
+                            transaction = Transaction(block.block_header.block_data.data["owner"], buyer_name, amount, art, 50, 100)
 
                             block = Block(b_header, transaction)
                             blockchain.append(block)
-
-                        for block in blockchain:
-                            print(block)
-                            print(" ")
-                        break
+                            for block in blockchain:
+                                print(block)
+                                print(" ")
+                            break                        
                 else:
                     sg.Popup("Inputed amout is less then required amount.", keep_on_top=True)
         else:
