@@ -121,8 +121,8 @@ while True:
                     amount = values[1]
                     image_name = images[img_index]
                     
-                    for block in blockchain:
-                        if block.block_header.block_data.data["nft_art"].nft_image == images[img_index]:
+                    for i in range(len(blockchain)-1, -1, -1):
+                        if blockchain[i].block_header.block_data.data["nft_art"].nft_image == images[img_index]:
                             art = NFTArt(image_name)
                             b_data = BlockData()
                             b_data.input_data(buyer_name, amount, art)
@@ -130,13 +130,16 @@ while True:
                             prev_hash = blockchain[len(blockchain) - 1].block_header.block_hash
                             b_header = BlockHeader(prev_hash, 2, 0, b_data)
 
-                            transaction = Transaction(block.block_header.block_data.data["owner"], buyer_name, amount, art, 50, 100)
+                            transaction = Transaction(blockchain[i].block_header.block_data.data["owner"], buyer_name, amount, art, 50, 100)
 
                             block = Block(b_header, transaction)
                             blockchain.append(block)
+                            print("*************************************************")
                             for block in blockchain:
-                                print(block)
+                                print(block.block_header.block_data.data["owner"])
+                                print(block.block_header.block_data.data["nft_art"].nft_image)
                                 print(" ")
+                            print(i)                        
                             break                        
                 else:
                     sg.Popup("Inputed amout is less then required amount.", keep_on_top=True)
