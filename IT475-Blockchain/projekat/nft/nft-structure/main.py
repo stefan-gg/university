@@ -20,8 +20,8 @@ def loadImages(path):
         loadedImages.append(img)
     return loadedImages
 
-#path = './images/'
-path = "C:/Users/Stefan/Desktop/git-uni/university/IT475-Blockchain/projekat/nft/nft-structure/images/"
+path = './images/'
+# path = "C:/Users/Stefan/Desktop/git-uni/university/IT475-Blockchain/projekat/nft/nft-structure/images/"
 
 images = loadImages(path)
 owners = ['stefan', 'jovan', 'marko']
@@ -94,7 +94,7 @@ while True:
 
     win["-IMAGE-"].update(data=bio.getvalue())
     price = '0 ETH'
-    for block in blockchain:
+    for block in reversed(blockchain):
         if block.block_header.block_data.data["nft_art"].nft_image == images[img_index]:
             price = block.block_header.block_data.data["price"]
             break
@@ -132,7 +132,8 @@ while True:
 
                             transaction = Transaction(blockchain[i].block_header.block_data.data["owner"], buyer_name, amount, art, 50, 100)
 
-                            block = Block(b_header, transaction)
+                            block = Block(b_header, NULL)
+                            blockchain[i].transaction = transaction
                             blockchain.append(block)
                             print("Printing blockchain *************************************************")
                             for block in blockchain:
@@ -143,6 +144,5 @@ while True:
                     sg.Popup("Inputed amout is less then required amount.", keep_on_top=True)
         else:
             sg.Popup("Please input values in all fields.", keep_on_top=True)
-
 
 win.close()
