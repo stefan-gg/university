@@ -10,9 +10,16 @@ from block import Block
 import time
 import io
 import PySimpleGUI as sg
-import re
 
 def loadImages(path):
+    """
+    It takes a path to a folder as an argument, loads all the images in the folder,
+    and returns them as
+    a list
+    
+    :param path: The path to the folder containing the images
+    :return: A list of images.
+    """
     imagesList = os.listdir(path)
     loadedImages = []
     for image in imagesList:
@@ -20,8 +27,11 @@ def loadImages(path):
         loadedImages.append(img)
     return loadedImages
 
-path = './images/'
-# path = "C:/Users/Stefan/Desktop/git-uni/university/IT475-Blockchain/projekat/nft/nft-structure/images/"
+# Getting the current working directory and adding the path to the images folder to it.
+file_path = os.path.abspath(os.getcwd()) + "/nft-structure/images/"
+
+#path = './images/'
+path = file_path
 
 images = loadImages(path)
 owners = ['stefan', 'jovan', 'marko']
@@ -52,6 +62,7 @@ for img in images:
 for block in blockchain:
     print(block, end='\n\n')
 
+# Creating a GUI window with the layout that is specified.
 layout = [
     [sg.Image(key="-IMAGE-")],
     [
@@ -59,6 +70,7 @@ layout = [
         sg.Button("Previous"),
         sg.Button("Next")
     ],
+    [sg.Text('Name of this NFT is: ', key="-NAME-")],
     [sg.Text('Price of this NFT is: ', key="-PRICE-")],
     [
         [sg.Text('Name', size =(7, 0)), sg.InputText()],
@@ -67,13 +79,17 @@ layout = [
     ]
 ]
 
+# Creating a window with the title "NFT blockchain" and the layout
+# that is specified in the layout variable.
 win = sg.Window("NFT blockchain", layout)
 
 img_index = 0
 
 while True:
+    # Reading the event and values from the window.
     event, values = win.read()
     win["-PRICE-"].update('Price of this NFT is: ')
+    win["-NAME-"].update('Name of this NFT is: ')
     if event == sg.WIN_CLOSED:
         break
     if event == "Previous":
@@ -98,8 +114,13 @@ while True:
         if block.block_header.block_data.data["nft_art"].nft_image == images[img_index]:
             price = block.block_header.block_data.data["price"]
             break
+
     win["-PRICE-"].update(win["-PRICE-"].get() + price)
 
+    image_name = str(images[img_index].filename).split("/")[-1].split(".")[0]
+
+    win["-NAME-"].update(win["-NAME-"].get() + image_name)
+    
     flag = False
 
     if event == "Submit":
@@ -115,12 +136,14 @@ while True:
             if flag:
                 if float(NFTPrice) <= float(values[1]):
                     
-                    #TODO: Napisati da se kupi nft i upis u blockchain
-                    
                     buyer_name = values[0]
                     amount = values[1]
                     image_name = images[img_index]
                     
+                    # Searching for the block that contains the image that
+                    # is currently displayed in
+                    # the GUI window.
+
                     for i in range(len(blockchain)-1, -1, -1):
                         if blockchain[i].block_header.block_data.data["nft_art"].nft_image == images[img_index]:
                             art = NFTArt(image_name)
@@ -135,7 +158,7 @@ while True:
                             block = Block(b_header, NULL)
                             blockchain[i].transaction = transaction
                             blockchain.append(block)
-                            print("Printing blockchain *************************************************")
+                            print("Printing blockchain ********************************************************")
                             for block in blockchain:
                                 print(block)
                                 print(" ")
