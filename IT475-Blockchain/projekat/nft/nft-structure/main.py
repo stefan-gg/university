@@ -83,6 +83,7 @@ layout = [
 # that is specified in the layout variable.
 win = sg.Window("NFT blockchain", layout)
 
+price_text = ""
 img_index = 0
 
 while True:
@@ -144,7 +145,15 @@ while True:
                     # is currently displayed in
                     # the GUI window.
 
+                    # Updating the price of the NFT in real time.
+                    if price_text == "":
+                        price_text = "Price of this NFT is: " + amount + " ETH"
+                        win["-PRICE-"].update(price_text)
+                    else:
+                        win["-PRICE-"].update(price_text)
+
                     for i in range(len(blockchain)-1, -1, -1):
+                        
                         if blockchain[i].block_header.block_data.data["nft_art"].nft_image == images[img_index]:
                             art = NFTArt(image_name)
                             b_data = BlockData()
