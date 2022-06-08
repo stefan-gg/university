@@ -150,6 +150,7 @@ while True:
                         price_text = "Price of this NFT is: " + amount + " ETH"
                         win["-PRICE-"].update(price_text)
                     else:
+                        price_text = "Price of this NFT is: " + amount + " ETH"
                         win["-PRICE-"].update(price_text)
 
                     for i in range(len(blockchain)-1, -1, -1):
