@@ -61,7 +61,6 @@
 #         image_number += 1
 
 
-# Larger CNN for the MNIST Dataset
 import os
 import cv2
 from keras.datasets import mnist
@@ -84,36 +83,35 @@ X_test = X_test.reshape((X_test.shape[0], 28, 28, 1)).astype('float32')
 X_train = X_train / 255
 X_test = X_test / 255
 
-# Converting the labels to binary class matrices.
+# converting the labels to binary class matrices.
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 num_classes = y_test.shape[1]
-# define the larger model
-def larger_model():
-	# create model
-	model = Sequential()
-	model.add(Conv2D(30, (5, 5), input_shape=(28, 28, 1), activation='relu'))
-	model.add(MaxPooling2D())
-	model.add(Conv2D(15, (3, 3), activation='relu'))
-	model.add(MaxPooling2D())
-	model.add(Dropout(0.2))
-	model.add(Flatten())
-	model.add(Dense(128, activation='relu'))
-	model.add(Dense(50, activation='relu'))
-	model.add(Dense(num_classes, activation='softmax'))
-	# Compile model
-	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-	return model
-# build the model
-model = larger_model()
-# Fit the model
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, batch_size=200)
-# Final evaluation of the model
-scores = model.evaluate(X_test, y_test, verbose=0)
-# Saving the model
-model.save(r'digits_model.h5')
 
-# Loading the images from the folder and predicting them.
+# create model
+model = Sequential()
+# when using this layer as the first layer we need to provide input_shape
+model.add(Conv2D(30, (5, 5), input_shape=(28, 28, 1), activation='relu'))
+model.add(MaxPooling2D())
+model.add(Conv2D(15, (3, 3), activation='relu'))
+model.add(MaxPooling2D())
+model.add(Dropout(0.2))
+model.add(Flatten())
+model.add(Dense(128, activation='relu'))
+model.add(Dense(50, activation='relu'))
+model.add(Dense(num_classes, activation='softmax'))
+
+# compile model
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+# fit the model
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, batch_size=200)
+# final evaluation of the model
+scores = model.evaluate(X_test, y_test, verbose=0)
+# saving the model
+model.save(r'models\\digits_model.h5')
+
+# loading the images from the folder and predicting them.
 image_number = 1
 while os.path.isfile('C:/Users/Stefan/Desktop/ai/Character_{}.png'.format(image_number)):
     try:
@@ -134,5 +132,5 @@ while os.path.isfile('C:/Users/Stefan/Desktop/ai/Character_{}.png'.format(image_
         plt.show()
         image_number += 1
     except:
-        print("Error reading image! Proceeding with next image...")
+        print("Image with name : Character_" + str(image_number) + ".png is not found")
         image_number += 1

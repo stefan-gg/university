@@ -76,9 +76,9 @@ word_dict = {0:'A',1:'B',2:'C',3:'D',4:'E',5:'F',6:'G',7:'H',8:'I',9:'J',10:'K',
 # history = model.fit(train_X, train_yOHE, epochs=1,  validation_data = (test_X,test_yOHE))
 
 # model.summary()
-# model.save(r'model_hand.h5')
+# model.save(r'models\\letters_model.h5')
 
-model = tf.keras.models.load_model('model_hand.h5')
+model = tf.keras.models.load_model('models\\letters_model.h5')
 
 # print("The validation accuracy is :", history.history['val_accuracy'])
 # print("The training accuracy is :", history.history['accuracy'])
@@ -99,7 +99,7 @@ model = tf.keras.models.load_model('model_hand.h5')
 
 
 
-img = cv2.imread(r'C:/Users/Stefan/Desktop/ai/Character_2.png')
+img = cv2.imread(r'C:\\Users\\Stefan\\Desktop\\git-uni\\university\\CS374-ArtificialInteligence\\CS374-Project\\images\\characters\\Character_6.png')
 img_copy = img.copy()
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 img = cv2.resize(img, (400,440))

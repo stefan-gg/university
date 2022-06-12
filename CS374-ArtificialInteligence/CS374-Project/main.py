@@ -1,7 +1,7 @@
 import cv2
 from imutils import contours
 
-image = cv2.imread('C:\\Users\\Stefan\Desktop\\ai\\ajde.jpg')
+image = cv2.imread('C:\\Users\\Stefan\\Desktop\\git-uni\\university\\CS374-ArtificialInteligence\\CS374-Project\\images\\equations\\ajde.jpg')
 # Converting the image to grayscale.
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 #cv2.imshow("gray image", gray)
@@ -39,7 +39,7 @@ for c in cnts:
 
         # Saving the image in the current directory.
         # ROI is the array of values
-        cv2.imwrite('Character_{}.png'.format(ROI_number), ROI)
+        cv2.imwrite('images\\characters\\Character_{}.png'.format(ROI_number), ROI)
 
         # Drawing a rectangle around the image.
         # Parameters are :
@@ -53,5 +53,5 @@ for c in cnts:
         ROI_number += 1
 
 #cv2.imshow('thresh', thresh)
-#cv2.imshow('image', image)
+cv2.imshow('image', image)
 cv2.waitKey()
