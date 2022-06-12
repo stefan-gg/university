@@ -28,10 +28,8 @@ def loadImages(path):
     return loadedImages
 
 # Getting the current working directory and adding the path to the images folder to it.
-file_path = os.path.abspath(os.getcwd()) + "/nft-structure/images/"
 
-#path = './images/'
-path = file_path
+path = './images/'
 
 images = loadImages(path)
 owners = ['stefan', 'jovan', 'marko']
