@@ -1,8 +1,10 @@
 import cv2
 from imutils import contours
-
-image = cv2.imread('C:\\Users\\Stefan\\Desktop\\git-uni\\university\\CS374-ArtificialInteligence\\CS374-Project\\images\\equations\\ajde.jpg')
+import numpy
+image = cv2.imread('C:\\Users\\Stefan\\Desktop\\git-uni\\university\\CS374-ArtificialInteligence\\CS374-Project\\images\\equations\\jednacina2.jpg')
 # Converting the image to grayscale.
+# image = cv2.resize(image, (400,440))
+# image = numpy.invert(image)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 #cv2.imshow("gray image", gray)
 
@@ -10,7 +12,7 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 # Thresholding is the binarization of an image
 # Otsu's threshold attempts to be more dinamic and automatically compute optimal treshold
 thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU + cv2.THRESH_BINARY)[1]
-
+cv2.imshow('image', thresh)
 # Find contours, sort from left-to-right
 # findContours() works best on binary images
 # cv2.RETR_EXTERNAL retrieves only the extreme outer contours
@@ -31,7 +33,7 @@ for c in cnts:
     if area > 10:
 
         # Drawing rectangle
-        x,y,w,h = cv2.boundingRect(c)
+        x, y, w, h = cv2.boundingRect(c)
 
         # Image array of values
         # 255 - values from array at y:y+h, x:x+w position
@@ -52,6 +54,5 @@ for c in cnts:
         
         ROI_number += 1
 
-#cv2.imshow('thresh', thresh)
 cv2.imshow('image', image)
 cv2.waitKey()

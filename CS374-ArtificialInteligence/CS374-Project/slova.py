@@ -99,7 +99,7 @@ model = tf.keras.models.load_model('models\\letters_model.h5')
 
 
 
-img = cv2.imread(r'C:\\Users\\Stefan\\Desktop\\git-uni\\university\\CS374-ArtificialInteligence\\CS374-Project\\images\\characters\\Character_6.png')
+img = cv2.imread(r'C:\\Users\\Stefan\\Desktop\\git-uni\\university\\CS374-ArtificialInteligence\\CS374-Project\\images\\characters\\Character_1.png')
 img_copy = img.copy()
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 img = cv2.resize(img, (400,440))
@@ -118,9 +118,9 @@ img_pred = word_dict[np.argmax(model.predict(img_final))]
 
 print(model.predict(img_final))
 
-cv2.putText(img, "Dataflair _ _ _ ", (20,25), cv2.FONT_HERSHEY_TRIPLEX, 0.7, color = (0,0,230))
+#cv2.putText(img, "Dataflair _ _ _ ", (20,25), cv2.FONT_HERSHEY_TRIPLEX, 0.7, color = (0,0,230))
 cv2.putText(img, "Prediction: " + img_pred, (20,410), cv2.FONT_HERSHEY_DUPLEX, 1.3, color = (255,0,30))
-cv2.imshow('Dataflair handwritten character recognition _ _ _ ', img)
+cv2.imshow('Dataflair handwritten character recognition', img)
 
 while (1):
     k = cv2.waitKey(1) & 0xFF
