@@ -60,6 +60,9 @@ import tensorflow as tf
 # scores = model.evaluate(X_test, y_test, verbose=0)
 # # saving the model
 # model.save(r'models\\digits_model.h5')
+
+
+
 model = tf.keras.models.load_model('models\\digits_model.h5')
 # loading the images from the folder and predicting them.
 image_number = 0

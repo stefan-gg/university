@@ -78,8 +78,6 @@ word_dict = {0:'A',1:'B',2:'C',3:'D',4:'E',5:'F',6:'G',7:'H',8:'I',9:'J',10:'K',
 # model.summary()
 # model.save(r'models\\letters_model.h5')
 
-model = tf.keras.models.load_model('models\\letters_model.h5')
-
 # print("The validation accuracy is :", history.history['val_accuracy'])
 # print("The training accuracy is :", history.history['accuracy'])
 # print("The validation loss is :", history.history['val_loss'])
@@ -96,8 +94,9 @@ model = tf.keras.models.load_model('models\\letters_model.h5')
 #     ax.grid()
 
 
+word_dict = {0:'A',1:'B',2:'C',3:'D',4:'E',5:'F',6:'G',7:'H',8:'I',9:'J',10:'K',11:'L',12:'M',13:'N',14:'O',15:'P',16:'Q',17:'R',18:'S',19:'T',20:'U',21:'V',22:'W',23:'X', 24:'Y',25:'Z'}
 
-
+model = tf.keras.models.load_model('models\\letters_model.h5')
 
 img = cv2.imread(r'C:\\Users\\Stefan\\Desktop\\git-uni\\university\\CS374-ArtificialInteligence\\CS374-Project\\images\\characters\\Character_1.png')
 img_copy = img.copy()
@@ -112,10 +111,8 @@ img_final = np.reshape(img_final, (1,28,28,1))
 
 
 img_pred = word_dict[np.argmax(model.predict(img_final))]
-
-# for m in model.predict(img_final):
-#     print(max(m))
-
+print(word_dict[np.argmax(model.predict(img_final))])
+print("****************************")
 print(model.predict(img_final))
 
 #cv2.putText(img, "Dataflair _ _ _ ", (20,25), cv2.FONT_HERSHEY_TRIPLEX, 0.7, color = (0,0,230))

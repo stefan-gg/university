@@ -5,6 +5,7 @@ import os
 from pytesseract import pytesseract
 from PIL import Image
 import matplotlib.pyplot as plt
+import tensorflow as tf
 
 # getting path oh the current working directory
 path = os.getcwd()
@@ -49,7 +50,7 @@ for c in cnts:
 
         # Saving the image in the current directory.
         # ROI is the array of values
-        cv2.imwrite('images\\characters\\Character_{}.png'.format(ROI_number), ROI)
+        cv2.imwrite('images\characters\Character_{}.png'.format(ROI_number), ROI)
 
         # Drawing a rectangle around the image.
         # Parameters are :
@@ -68,24 +69,71 @@ for c in cnts:
 cv2.imshow('image', image)
 cv2.waitKey()
 
-
-image_number = 0
-#while os.path.isfile(path + '/images/characters/Character_{}.png'.format(image_number)):
-        
 path_to_tesseract = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
   
-# opening the image & storing it in an image object
-img = Image.open(path + '/images/equations/eq.jpg')
-img = np.invert(img)
+#image_name = input("Input name of image (and the image extension also) >>")
+
+img = Image.open(path + '/images/equations/eq.jpg') #+ image_name)
+#img = np.invert(img)
         
 pytesseract.tesseract_cmd = path_to_tesseract
         
 text = pytesseract.image_to_string(img)
 
 text_from_image = ""
-#print(text[:-1])
-oper = ["*", "+", "=", "/"]
+predicition = ""
+operations = ["*", "+", "=", "/", "."]
+
 for l in text:
-        if l.isalpha() or l.isdigit() or l in oper:
+        if l.isalpha() or l.isdigit() or l in operations:
                 text_from_image += l
-image_number += 1
+text_from_image = text_from_image.replace("=", "==")
+print(text_from_image)
+#zameni = sa == i onda posle zameni == sa =
+for i in range(0, ROI_number):
+        if text_from_image[i].isalpha():
+
+                model = tf.keras.models.load_model('models\letters_model.h5')
+
+                word_dict = {0:'A',1:'B',2:'C',3:'D',4:'E',5:'F',6:'G',7:'H',8:'I',9:'J',10:'K',11:'L',12:'M',13:'N',14:'O',15:'P',16:'Q',17:'R',18:'S',19:'T',20:'U',21:'V',22:'W',23:'X', 24:'Y',25:'Z'}
+
+                img = cv2.imread(path + '/images/characters/Character_{}.png'.format(i))
+                img_copy = img.copy()
+                img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+                img = cv2.resize(img, (400,440))
+
+                img_copy = cv2.GaussianBlur(img_copy, (7,7), 0)
+                img_gray = cv2.cvtColor(img_copy, cv2.COLOR_BGR2GRAY)
+                _, img_thresh = cv2.threshold(img_gray, 100, 255, cv2.THRESH_BINARY_INV)
+                img_final = cv2.resize(img_thresh, (28,28))
+                img_final = np.reshape(img_final, (1,28,28,1))
+
+                img_pred = word_dict[np.argmax(model.predict(img_final))]
+
+                predicition += img_pred
+                print("i ->>>>>>>>>" + str(i))
+        elif text_from_image[i].isdigit():
+
+                model = tf.keras.models.load_model('models\digits_model.h5')
+                
+                try:
+                        img = cv2.imread(path + '/images/characters/Character_{}.png'.format(i))[:,:,0]
+                        img = cv2.resize(img, (28, 28))
+                        img = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY)[1]
+                        img = np.invert(np.array([img]))
+                        prediction = model.predict(img)
+            
+                        print("The number is probably a {}".format(np.argmax(prediction)))
+                        print(prediction)
+                        predicition += str(np.argmax(prediction))
+                        plt.imshow(img[0], cmap=plt.cm.binary)
+                        plt.show()
+                except:
+                    print("Image with name : Character_" + str(i) + ".png is not found")
+       
+        else:
+                predicition += text_from_image[i]
+                if text_from_image[i] == "=":
+                        i+=1
+
+print(predicition.replace("==", "="))
