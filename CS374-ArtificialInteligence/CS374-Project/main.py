@@ -74,7 +74,6 @@ path_to_tesseract = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 #image_name = input("Input name of image (and the image extension also) >>")
 
 img = Image.open(path + '/images/equations/eq.jpg') #+ image_name)
-#img = np.invert(img)
         
 pytesseract.tesseract_cmd = path_to_tesseract
         
