@@ -72,23 +72,20 @@ cv2.waitKey()
 image_number = 0
 #while os.path.isfile(path + '/images/characters/Character_{}.png'.format(image_number)):
         
-#converting image to text
-        # image = Image.open(path + '/images/characters/Character_'+ str(image_number) +'.png')
-        # print(pytesseract.image_to_string(image))
-
 path_to_tesseract = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
   
-        # Opening the image & storing it in an image object
+# opening the image & storing it in an image object
 img = Image.open(path + '/images/equations/eq.jpg')
 img = np.invert(img)
         
 pytesseract.tesseract_cmd = path_to_tesseract
         
 text = pytesseract.image_to_string(img)
-        
-print(text[:-1])
+
+text_from_image = ""
+#print(text[:-1])
 oper = ["*", "+", "=", "/"]
 for l in text:
         if l.isalpha() or l.isdigit() or l in oper:
-                print(l)
+                text_from_image += l
 image_number += 1
