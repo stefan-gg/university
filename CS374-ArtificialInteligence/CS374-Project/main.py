@@ -1,10 +1,16 @@
 import cv2
 from imutils import contours
-import numpy
-image = cv2.imread('C:\\Users\\Stefan\\Desktop\\git-uni\\university\\CS374-ArtificialInteligence\\CS374-Project\\images\\equations\\jednacina2.jpg')
+import numpy as np
+import os
+from pytesseract import pytesseract
+from PIL import Image
+import matplotlib.pyplot as plt
+
+# getting path oh the current working directory
+path = os.getcwd()
+image = cv2.imread(path + '/images/equations/eq.jpg')
 # Converting the image to grayscale.
-# image = cv2.resize(image, (400,440))
-# image = numpy.invert(image)
+image = np.invert(image)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 #cv2.imshow("gray image", gray)
 
@@ -28,8 +34,10 @@ cnts, _ = contours.sort_contours(cnts, method="left-to-right")
 ROI_number = 0
 
 for c in cnts:
+    
     # Calculating the area of the contour.
     area = cv2.contourArea(c)
+
     if area > 10:
 
         # Drawing rectangle
@@ -54,5 +62,33 @@ for c in cnts:
         
         ROI_number += 1
 
+
+
+#image = cv2.resize(image, (400,440))
 cv2.imshow('image', image)
 cv2.waitKey()
+
+
+image_number = 0
+#while os.path.isfile(path + '/images/characters/Character_{}.png'.format(image_number)):
+        
+#converting image to text
+        # image = Image.open(path + '/images/characters/Character_'+ str(image_number) +'.png')
+        # print(pytesseract.image_to_string(image))
+
+path_to_tesseract = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+  
+        # Opening the image & storing it in an image object
+img = Image.open(path + '/images/equations/eq.jpg')
+img = np.invert(img)
+        
+pytesseract.tesseract_cmd = path_to_tesseract
+        
+text = pytesseract.image_to_string(img)
+        
+print(text[:-1])
+oper = ["*", "+", "=", "/"]
+for l in text:
+        if l.isalpha() or l.isdigit() or l in oper:
+                print(l)
+image_number += 1
