@@ -164,10 +164,10 @@ equation_2 = get_text_from_image()
 
 parser = py_expression_eval.Parser()
 
-exp_1 = parser.parse(equation_1)
+exp_1 = parser.parse(equation_1.split("=")[0])
 print(exp_1.variables()[0])
 
-exp_2 = parser.parse(equation_2)
+exp_2 = parser.parse(equation_2.split("=")[0])
 print(exp_2.variables()[0])
 
 variables = ""
@@ -182,7 +182,7 @@ for index in range(len(exp_1.variables())):
 
 variables = variables[:-1]
 
-if len(variables > 3):
+if len(variables) > 3:
         print("There are too many variables for this program to solve !")
 
 else:
