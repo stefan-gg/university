@@ -161,10 +161,8 @@ equation_2 = get_text_from_image()
 parser = py_expression_eval.Parser()
 
 exp_1 = parser.parse(equation_1.split("=")[0])
-print(exp_1.variables()[0])
 
 exp_2 = parser.parse(equation_2.split("=")[0])
-print(exp_2.variables()[0])
 
 variables = ""
 
