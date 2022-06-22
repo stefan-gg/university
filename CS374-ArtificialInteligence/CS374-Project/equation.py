@@ -15,10 +15,10 @@ x, y = symbols("x y")
 #print(expr.subs(x, 2))
 
 try:
-    expr = Eq(sympify("x+y", evaluate=False), sympify("4", evaluate=False))
-    expr2 = Eq(sympify("x-y", evaluate=False), sympify("0", evaluate=False))
-    expr3 = Eq(sympify("x-2*y", evaluate=False), sympify("-22", evaluate=False))
-    solution = solve((expr, expr2, expr3),(x, y))
+    expr = Eq(sympify("y+x", evaluate=False), sympify("24", evaluate=False))
+    expr2 = Eq(sympify("-3*x", evaluate=False), sympify("3", evaluate=False))
+    #expr3 = Eq(sympify("x-2*y", evaluate=False), sympify("-2", evaluate=False))
+    solution = solve((expr, expr2),(x, y))
     print(solution[x])
     print(solution[y])
 #print(solve(expr, x))
@@ -31,11 +31,17 @@ except:
 # x = 10
 # print(eval(code))
 
-# parser = py_expression_eval.Parser()
+a="X+2-3+V"
+b="V+X"
 
-# exp = parser.parse('x+v+a=1')
+parser = py_expression_eval.Parser()
+exp = parser.parse(a)
+print(exp.variables()[0])
 
-# print(exp.variables())
+exp2 = parser.parse(b)
+print(exp2.variables()[0])
+
+print(exp2.variables()[1] in exp.variables())
 
 # print(parser.evaluate('x + v * x + a + 3 * x^2 / 2', {"x":2, "v":1, "a":1}))
 # fn = Expression("2x+y+2", ["x","y"])
