@@ -94,12 +94,8 @@ def get_text_from_image():
                         text_from_image += l
         text_from_image = text_from_image.replace("=", "==")
 
-        print(text_from_image)
+        print("Tesseract found : " + text_from_image)
         
-        #zameni = sa == i onda posle zameni == sa =
-
-        print("ROIII" + str(ROI_number))
-
         for i in range(0, ROI_number):
                 # tesseract is not recognizing minus so i had to manualy recognize it
                 width, height = Image.open(path + '/images/characters/Character_{}.png'.format(i)).size
@@ -191,7 +187,6 @@ else:
             expr2 = Eq(sympify(equation_2.split("=")[0], evaluate=False), sympify(equation_2.split("=")[1], evaluate=False))
             x, y = symbols(variables)
             solution = solve((expr, expr2),(x, y))
-            print(solution[x])
-            print(solution[y])
+            print("Solutions are : " + str(solution[x]) + str(solution[y]))
         except:
             print("No solution were found for the equations.")
