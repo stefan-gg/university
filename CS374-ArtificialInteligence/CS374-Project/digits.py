@@ -12,12 +12,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 
-# load data
+# load data from minst
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
-# reshape to be [samples][width][height][channels]
+# reshape
 X_train = X_train.reshape((X_train.shape[0], 28, 28, 1)).astype('float32')
 X_test = X_test.reshape((X_test.shape[0], 28, 28, 1)).astype('float32')
-# normalize inputs from 0-255 to 0-1
+# normalizing inputs from 0-255 to 0-1
 X_train = X_train / 255
 X_test = X_test / 255
 
@@ -43,14 +43,12 @@ model.add(Dense(128, activation='relu'))
 model.add(Dense(50, activation='relu'))
 model.add(Dense(num_classes, activation='softmax'))
 
-# compile model
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-# fit the model
 model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=15, batch_size=200)
-# final evaluation of the model
+
 scores = model.evaluate(X_test, y_test, verbose=0)
-# saving the model
+
 model.save(r'models\\digits_model.h5')
 
 
