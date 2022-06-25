@@ -23,7 +23,8 @@ def get_text_from_image():
 
         # Pixels values are either 0 or 255
         # Thresholding is the binarization of an image
-        # Otsu's threshold attempts to be more dinamic and automatically compute optimal treshold
+        # Otsu's threshold attempts to be more dinamic and automatically
+        # compute optimal treshold
         thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU + cv2.THRESH_BINARY)[1]
         cv2.imshow('image', thresh)
         # Find contours, sort from left-to-right
@@ -71,15 +72,13 @@ def get_text_from_image():
 
 
 
-        #image = cv2.resize(image, (400,440))
         cv2.imshow('image', image)
         cv2.waitKey()
 
         path_to_tesseract = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
         
-        #image_name = input("Input name of image (and the image extension also) >>")
 
-        img = Image.open(path + '/images/equations/' + image_name) #+ image_name)
+        img = Image.open(path + '/images/equations/' + image_name)
 
         pytesseract.tesseract_cmd = path_to_tesseract
 
@@ -129,7 +128,6 @@ def get_text_from_image():
                         img_pred = word_dict[np.argmax(model.predict(img_final))]
 
                         predicition += img_pred
-                        print("i ->>>>>>>>>" + str(i))
                 elif text_from_image[i].isdigit():
 
                         model = tf.keras.models.load_model('models\digits_model.h5')
@@ -185,6 +183,6 @@ else:
             expr2 = Eq(sympify(equation_2.split("=")[0], evaluate=False), sympify(equation_2.split("=")[1], evaluate=False))
             x, y = symbols(variables)
             solution = solve((expr, expr2),(x, y))
-            print("Solutions are : " + str(solution[x]) + str(solution[y]))
+            print("Solutions are : first -> " + str(solution[x]) + ", second -> " + str(solution[y]))
         except:
             print("No solution were found for the equations.")
