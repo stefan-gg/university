@@ -1,0 +1,10 @@
+C:\Users\Stefan\Desktop\git-uni\university\CS322-C#\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\bin\Debug\CS322-DZ02-Stefan-Gogic-4056.exe.config
+C:\Users\Stefan\Desktop\git-uni\university\CS322-C#\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\bin\Debug\CS322-DZ02-Stefan-Gogic-4056.exe
+C:\Users\Stefan\Desktop\git-uni\university\CS322-C#\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\bin\Debug\CS322-DZ02-Stefan-Gogic-4056.pdb
+C:\Users\Stefan\Desktop\git-uni\university\CS322-C#\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\obj\Debug\CS322-DZ02-Stefan-Gogic-4056.csproj.AssemblyReference.cache
+C:\Users\Stefan\Desktop\git-uni\university\CS322-C#\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\obj\Debug\CS322_DZ02_Stefan_Gogic_4056.Form1.resources
+C:\Users\Stefan\Desktop\git-uni\university\CS322-C#\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\obj\Debug\CS322_DZ02_Stefan_Gogic_4056.Properties.Resources.resources
+C:\Users\Stefan\Desktop\git-uni\university\CS322-C#\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\obj\Debug\CS322-DZ02-Stefan-Gogic-4056.csproj.GenerateResource.cache
+C:\Users\Stefan\Desktop\git-uni\university\CS322-C#\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\obj\Debug\CS322-DZ02-Stefan-Gogic-4056.csproj.CoreCompileInputs.cache
+C:\Users\Stefan\Desktop\git-uni\university\CS322-C#\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\obj\Debug\CS322-DZ02-Stefan-Gogic-4056.exe
+C:\Users\Stefan\Desktop\git-uni\university\CS322-C#\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\CS322-DZ02-Stefan-Gogic-4056\obj\Debug\CS322-DZ02-Stefan-Gogic-4056.pdb
