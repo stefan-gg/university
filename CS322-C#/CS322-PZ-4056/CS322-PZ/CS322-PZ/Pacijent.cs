@@ -70,7 +70,11 @@ namespace CS322_PZ
 					}
 				}
 
-				if (JMBG.Length != 13 || JMBGSadrziSamoBrojeve == false)
+				if (Ime == "" || Prezime == "")
+				{
+					MessageBox.Show("Ime i prezime su obavezna polja !");
+				}
+				else if (JMBG.Length != 13 || JMBGSadrziSamoBrojeve == false)
 				{
 					MessageBox.Show("JMBG mora da ima tačno 13 cifara i ne sme da sadrži slova");
 				}
@@ -97,8 +101,6 @@ namespace CS322_PZ
 					{
 						reader.Close();
 						mySqlConnection.Close();
-
-						MessageBox.Show(IdDoktora + "");
 
 						string Query = "INSERT INTO cs322.pacijenti (jmbg, ime, prezime, stepen_bolesti, id_doktora) " +
 						"VALUES ('" + JMBG + "', '" + Ime + "', '" + Prezime + "'," +
@@ -136,7 +138,11 @@ namespace CS322_PZ
 				
 				int.TryParse(textBox4.Text, out StepenBolesti);
 
-				if (StepenBolesti < 1 || StepenBolesti > 5)
+				if (Ime == "" || Prezime == "")
+				{
+					MessageBox.Show("Ime i prezime su obavezna polja !");
+				}
+				else if(StepenBolesti < 1 || StepenBolesti > 5)
 				{
 					MessageBox.Show("Stepen bolesti mora da bude broj od 1 do 5");
 				}
